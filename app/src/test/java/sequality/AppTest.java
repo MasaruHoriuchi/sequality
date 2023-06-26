@@ -18,4 +18,64 @@ public class AppTest {
     App classUnderTest = new App();
     assertEquals("Hello World!", classUnderTest.getGreeting());
   }
+
+  @Test
+  public void testSum2and3() {
+    Calculate calculate = new Calculate();
+    int expected = 5;
+    assertEquals(expected, calculate.sum(2, 3));
+  }
+
+  @Test
+  public void testSum1to10() {
+    int sum = 0;
+    Calculate cal = new Calculate();
+    int expected = 55;
+    for (int i = 0; i <= 10; i++) {
+      sum = cal.sum(sum, i);
+    }
+    assertEquals(expected, sum);
+  }
+
+  @Test
+  public void testAverage2and3() {
+    Calculate cal = new Calculate();
+    double expected = 2.5;
+    double ave = (double) cal.sum(2, 3) / 2.0;
+    assertEquals(expected, ave, 0);
+  }
+
+  @Test
+  public void testAverage1to10() {
+    int sum = 0;
+    Calculate cal = new Calculate();
+    double expected = 5.5;
+    for (int i = 1; i <= 10; i++) {
+      sum = cal.sum(sum, i);
+    }
+    double ave = (double) sum / 10;
+    assertEquals(expected, ave, 0);
+  }
+
+  @Test
+  public void testSumOfOdd() {
+    Calculate cal = new Calculate();
+    int expected = 25;
+    int sum = 0;
+    for (int i = 1; i < 10; i = i + 2) {
+      sum = cal.sum(sum, i);
+    }
+    assertEquals(expected, sum);
+  }
+
+  @Test
+  public void testSumOfEven() {
+    Calculate cal = new Calculate();
+    int expected = 30;
+    int sum = 0;
+    for (int i = 2; i <= 10; i = i + 2) {
+      sum = cal.sum(sum, i);
+    }
+    assertEquals(expected, sum);
+  }
 }
